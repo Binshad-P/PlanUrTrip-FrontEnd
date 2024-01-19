@@ -1,27 +1,18 @@
-import React, { useState } from 'react';
-import './MultiStepForm.css'; // Import your CSS file
+import React, { useState } from "react";
+import "./MultiStepForm.css"; // Import your CSS file
 import { FaArrowRight } from "react-icons/fa";
 const MultiStepForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  });
+  const steps = ["Name", "Select Place", "Date"];
 
   const [step, setStep] = useState(1);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const [tab, setTab] = useState(0);
 
-  const handleNext = () => {
-    setStep((prevStep) => prevStep + 1);
-  };
+  const [duration, setDuration] = useState(0);
+   
+  const [currentStep,setCurrebtStep]=useState(1)
+  const [complete,setComplete]=useState(false)
+ 
 
   const handlePrev = () => {
     setStep((prevStep) => prevStep - 1);
@@ -29,45 +20,208 @@ const MultiStepForm = () => {
 
   const handleSubmit = () => {
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
-  const calculateProgress = () => {
-    return ((step - 1) / 3) * 100; // Assuming you have 3 steps in your form
-  };
+
 
   return (
     <div className="multistep-form-container">
- 
-      {step === 1 && (
-        <div className='bg-itinerary bg-cover w-full h-full'>
-               <div className="progress-bar absolute top-4" style={{ width: `${calculateProgress()}%` }}></div>
-          <div className='flex flex-col w-full h-full justify-center items-center gap-10'>
-         <label className='font-Marcellus text-3xl text-white'>Personalise your trip</label>
-         <input className='py-[20px] px-[120px] text-center text-white placeholder:text-white rounded-md  outline-none border-none focus:ring-0 bg-[#ffffff48]'  type='text' name='TripName' placeholder='Enter your trip’s name'/>
-         </div>
-        </div>
-      )}
-      {step === 2 && (
-          <div className='bg-itinerary bg-cover w-full h-full'>
-          <div className='flex flex-col w-full h-full justify-center items-center gap-10'>
-         <label className='font-Marcellus text-3xl text-white'>Personalise your trip</label>
-         <input className='py-[20px] px-[120px] text-center text-white placeholder:text-white rounded-md  outline-none border-none focus:ring-0 bg-[#ffffff48]'  type='text' name='TripName' placeholder='Enter your trip’s name'/>
-         </div>
-        </div>
-      )}
-      {step === 3 && (
-         <div className='bg-itinerary bg-cover w-full h-full'>
-         <div className='flex flex-col w-full h-full justify-center items-center gap-10'>
-        <label className='font-Marcellus text-3xl text-white'>Personalise your trip</label>
-        <input className='py-[20px] px-[120px] text-center text-white placeholder:text-white rounded-md  outline-none border-none focus:ring-0 bg-[#ffffff48]'  type='date' name='TripName' placeholder='Enter your trip’s name'/>
-        </div>
-       </div>
-      )}
-      <div className="buttons ">
+      {currentStep === 1 && (
+        <div className="bg-itinerary bg-cover w-full h-full">
+          <div className="flex flex-col w-full h-full justify-center items-center gap-10">
+            <div className="flex justify-between">
+              {steps?.map((step, i) => (
+                <div key={i} className={`step-item ${currentStep === i+1 && "active"} 
+                ${(i+1  < currentStep || complete) && "complete"}
+                `}>
+                  <div className="step">{i + 1}</div>
+                  <p className="text-white">{step}</p>
+                </div>
+              ))}
+            </div>
+            <label className="font-Marcellus text-3xl text-white">
+              Personalise your trip
+            </label>
+            <input
+              className="py-[20px] px-[120px] text-center text-white placeholder:text-white rounded-md  outline-none border-none focus:ring-0 bg-[#ffffff48]"
+              type="text"
+              name="TripName"
+              placeholder="Enter your trip’s name"
+            />
+             <div  className="bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px] outline-none">
+      <button className="flex items-center gap-5" onClick={()=>{
+        currentStep ===steps.length ? setComplete(true) : setCurrebtStep((prev)=>prev+1)
+        // setStep((prevStep) => prevStep + 1);
+       
+      }}>{currentStep === steps.length ? "Generate Trip" : `save&continue`}{currentStep<steps.length ? <FaArrowRight/> :""}</button>
         {/* {step > 1 && <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handlePrev}>Previous</button>} */}
-        {step < 3 ? <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handleNext}>save&continue <FaArrowRight /> </button> : <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handleSubmit}>Generate Trip</button>}
+     
       </div>
+          </div>
+         
+        </div>
+      )}
+      {currentStep === 2 && (
+        <div className="bg-itinerary bg-cover w-full h-full">
+          <div className="flex flex-col w-full h-full justify-center items-center gap-10">
+          <div className="flex justify-between">
+              {steps?.map((step, i) => (
+                <div key={i} className={`step-item ${currentStep === i+1 && "active"} 
+                ${(i+1  < currentStep || complete) && "complete"}
+                `}>
+                  <div className="step">{i + 1}</div>
+                  <p className="text-white">{step}</p>
+                </div>
+              ))}
+            </div>
+            <p className="font-Marcellus text-3xl text-white">
+              Select trip Mode
+            </p>
+            <div className="flex bg-[#ffffff48] rounded-lg">
+              <div
+                className={`flex flex-col items-center justify-center px-20 py-10  cursor-pointer ${
+                  tab == 1 ? "text-[#8DD3BB]" : "text-white"
+                }`}
+                onClick={() => setTab(1)}
+                tabIndex="0"
+              >
+                <p className="  text-xl font-semibold">Dynamic</p>
+                <p className=" max-w-[10rem] text-center">
+                  Frequent Change Of Accomodation
+                </p>
+              </div>
+              <div className="w-[2px] h-[100px] bg-white mt-[30px]"></div>
+              <div
+                className={`flex flex-col items-center justify-center px-20 py-10  cursor-pointer ${
+                  tab == 2 ? "text-[#8DD3BB]" : "text-white"
+                }`}
+                onClick={() => setTab(2)}
+                tabIndex="0"
+              >
+                <p className="text-xl font-semibold">Relaxed</p>
+                <p className=" max-w-[10rem] text-center">
+                  Move Less, Stay Longer In One Place
+                </p>
+              </div>
+            </div>
+            {(tab === 1 || tab === 0) && (
+              <div className="flex  bg-[#ffffff48] rounded-lg ">
+                <div
+                  className={`flex flex-col items-center justify-center px-16 py-10 ${
+                    duration == 1 ? "text-[#8DD3BB]" : "text-white"
+                  }`}
+                  onClick={() => setDuration(1)}
+                  tabIndex="0"
+                >
+                  <p className=" text-xl font-semibold">Short</p>
+                  <p className="">3-5 Days</p>
+                </div>
+                <div className="w-[2px] h-[100px] bg-white mt-[15px]"></div>
+                <div
+                  div
+                  className={`flex flex-col items-center justify-center px-16 py-10 ${
+                    duration == 2 ? "text-[#8DD3BB]" : "text-white"
+                  }`}
+                  onClick={() => setDuration(2)}
+                  tabIndex="0"
+                >
+                  <p className=" text-xl font-semibold">MidSize</p>
+                  <p className="">6-9 Days</p>
+                </div>
+                <div className="w-[2px] h-[100px] bg-white mt-[15px]"></div>
+                <div
+                  div
+                  className={`flex flex-col items-center justify-center px-16 py-10 ${
+                    duration == 3 ? "text-[#8DD3BB]" : "text-white"
+                  }`}
+                  onClick={() => setDuration(3)}
+                  tabIndex="0"
+                >
+                  <p className=" text-xl font-semibold">Long</p>
+                  <p className="">10-16 Days</p>
+                </div>
+              </div>
+            )}
+            {tab === 2 && (
+              <div className="flex  bg-[#ffffff48] rounded-lg">
+                <div
+                  div
+                  className={`flex flex-col items-center justify-center px-16 py-10 ${
+                    duration == 4 ? "text-[#8DD3BB]" : "text-white"
+                  }`}
+                  onClick={() => setDuration(4)}
+                  tabIndex="0"
+                >
+                  <p className=" text-xl font-semibold">MidSize</p>
+                  <p className="">6-9 Days</p>
+                </div>
+                <div className="w-[2px] h-[100px] bg-white mt-[15px]"></div>
+                <div
+                  div
+                  className={`flex flex-col items-center justify-center px-16 py-10 ${
+                    duration == 5 ? "text-[#8DD3BB]" : "text-white"
+                  }`}
+                  onClick={() => setDuration(5)}
+                  tabIndex="0"
+                >
+                  <p className=" text-xl font-semibold">Long</p>
+                  <p className="">10-16 Days</p>
+                </div>
+              </div>
+            )}
+            <div  className="bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px] outline-none">
+      <button className="flex items-center gap-5" onClick={()=>{
+        currentStep ===steps.length ? setComplete(true) : setCurrebtStep((prev)=>prev+1)
+        // setStep((prevStep) => prevStep + 1);
+       
+      }}>{currentStep === steps.length ? "Generate Trip" : `save&continue`}{currentStep<steps.length ? <FaArrowRight/> :""}</button>
+        {/* {step > 1 && <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handlePrev}>Previous</button>} */}
+     
+      </div>
+          </div>
+          
+        </div>
+      )}
+      {currentStep === 3 && (
+        <div className="bg-itinerary bg-cover w-full h-full">
+          <div className="flex flex-col w-full h-full justify-center items-center gap-10">
+          <div className="flex justify-between">
+              {steps?.map((step, i) => (
+                <div key={i} className={`step-item ${currentStep === i+1 && "active"} 
+                ${(i+1  < currentStep || complete) && "complete"}
+                `}>
+                  <div className="step">{i + 1}</div>
+                  <p className="text-white">{step}</p>
+                </div>
+              ))}
+            </div>
+            <label className="font-Marcellus text-3xl text-white">
+              Your trip date
+            </label>
+            <input
+              className="py-[20px] px-[120px] text-center text-white placeholder:text-white rounded-md  outline-none border-none focus:ring-0 bg-[#ffffff48]"
+              type="date"
+              name="TripName"
+              placeholder="Enter your trip’s name"
+            />
+            <div  className="bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px] outline-none">
+      <button className="flex items-center gap-5" onClick={()=>{
+        currentStep ===steps.length ? setComplete(true) : setCurrebtStep((prev)=>prev+1)
+        // setStep((prevStep) => prevStep + 1);
+       
+      }}>{currentStep === steps.length ? "Generate Trip" : `save&continue`}{currentStep<steps.length ? <FaArrowRight/> :""}</button>
+        {/* {step > 1 && <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handlePrev}>Previous</button>} */}
+     
+      </div>
+          </div>
+
+          
+          
+        </div>
+      )}
+     
+    
     </div>
   );
 };
