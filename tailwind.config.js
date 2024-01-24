@@ -15,6 +15,10 @@ export default {
         'img5': "url(../src/assets/images/bg-img5.png)",
         'PlanUrTrip':"url(../src/assets/images/PlanUrTrip.png)",
         'itinerary':"url(../src/assets/images/Itinerary-img.png)",
+        'login-img':"url(../src/assets/images/login-img.jpg)",
+        'signUP-img':"url(../src/assets/images/signup.jpg)",
+        'otp-img':"url(../src/assets/images/OTP.jpg)",
+        'sd':"url(../src/assets/images/sd.jpg)",
       },
       fontFamily:{
        Marcellus:['Marcellus SC', 'serif']

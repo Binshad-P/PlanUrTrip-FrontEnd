@@ -150,4 +150,24 @@
     .item .content{
         left: 15px;
     }
+    .slide .item:nth-child(3) {
+        left: 25%;
+    }
+    .item{
+        top: 75%;
+    }
+    .button{
+        right: 34.5%;
+        bottom: 3%;
+    }
+   .item .content{
+        left: 100px;
+        top: 35%;
+    }
+    .content .desc {
+        text-align: justify;
+        width: 70%;
+    }
+    
+
 }

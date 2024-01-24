@@ -6,6 +6,7 @@ import L_img4 from '../../assets/images/L_img4.png'
 import L_img5 from '../../assets/images/L_img1.png'
 
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
+import { Link } from 'react-router-dom'
 const Locations = () => {
   return (
     <div className='bg-[#F0F2F2] mt-[5.5rem] '>
@@ -16,21 +17,21 @@ const Locations = () => {
  somewhere to roam, tool to get you to your destination.</p>
         </div>
         <div className='flex flex-wrap gap-[28px] lg:gap-[47px] md-max:gap-[35px]'>
-            <div className='relative  w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img1}/>
+            <div className='relative  w-[27.11rem] h-[26.25rem] lg:w-[26.33rem] md-max:w-[19rem] '>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img1}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Melbourne</h1>
                     <p className='text-white text-sm font-light'>An amazing journey</p>
                     </div>
                     <div>
-                        <button className='w-[50px] h-[50px] rounded-full flex justify-center items-center bg-white opacity-25'><BsArrowRightShort  size={25} /></button>
+                       <Link to={'/SingleLocation'}> <button className='w-[50px] h-[50px] rounded-full flex justify-center items-center bg-white opacity-25'><BsArrowRightShort  size={25} /></button></Link>
                     </div>
                     
                 </div>
             </div>
-            <div className='relative w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img2}/>
+            <div className='relative w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem]'>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img2}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Paris</h1>
@@ -42,8 +43,8 @@ const Locations = () => {
                     
                 </div>
             </div>
-            <div className='relative w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img3}/>
+            <div className='relative w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem]'>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img3}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Melbourne</h1>
@@ -55,8 +56,8 @@ const Locations = () => {
                     
                 </div>
             </div>
-            <div className='relative w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img4}/>
+            <div className='relative w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem]'>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img4}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Columbia</h1>
@@ -68,8 +69,8 @@ const Locations = () => {
                     
                 </div>
             </div>
-            <div className='relative w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img5}/>
+            <div className='relative w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem]'>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img5}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Melbourne</h1>
@@ -81,8 +82,8 @@ const Locations = () => {
                     
                 </div>
             </div>
-            <div className='relative w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem]'>
-                <img  className='w-[27.11rem] lg:w-[25rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img1}/>
+            <div className='relative w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem]'>
+                <img  className='w-[27.11rem] lg:w-[26.33rem] md-max:w-[19rem] h-[26.25rem] object-cover rounded-md' src={L_img1}/>
                 <div className='absolute bottom-7 left-10 flex gap-[11.375rem] md-max:gap-[4.375rem]'>
                     <div >
                     <h1 className='text-white text-2xl font-medium'>Melbourne</h1>

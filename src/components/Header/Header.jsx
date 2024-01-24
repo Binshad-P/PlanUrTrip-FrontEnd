@@ -16,7 +16,7 @@ const Header = () => {
           <li>Destination</li>
         </ul>
         <div className="flex items-center gap-6">
-          <button>Login</button>
+         <Link to={'/Login'}><button>Login</button></Link> 
           {click ? (
             <IoClose className="lg:hidden" onClick={() => setClick(!click)} />
           ) : (
