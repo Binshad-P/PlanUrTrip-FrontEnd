@@ -37,7 +37,7 @@ const Weather = () => {
     <div className="flex ">
 <div className="flex flex-col justify-center items-center bg-[#8dd3ba] p-3 rounded-tl-lg rounded-bl-lg">
       <img className="w-[80%]" src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}/>
-       <p className="flex  h-full font-bold">{data?.weather[0]?.main}</p>
+       <p className="flex  h-full font-bold text-xl">{data?.weather[0]?.main}</p>
     </div>
 <div className="bg-[#ffffffae] p-5 rounded-tr-lg rounded-br-lg">
     
