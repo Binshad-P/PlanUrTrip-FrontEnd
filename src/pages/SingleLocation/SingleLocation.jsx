@@ -5,8 +5,8 @@ import SingleDestinationDetails from '../../container/SingleDestination/SingleDe
 const SingleLocation = () => {
   return (
     <div>
-        <HeroSingleDestination/>
-        <SingleDestinationDetails/>
+        <HeroSingleDestination />
+        <SingleDestinationDetails />
     </div>
   )
 }

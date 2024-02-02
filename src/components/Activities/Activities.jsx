@@ -17,21 +17,23 @@ import { Navigation, Pagination, History } from "swiper/modules";
 const Activities = () => {
   const swiperRef = useRef();
   return (
-    <div className="my-20">
-      <div className="mx-[5rem] flex justify-between mb-10">
-        <p className="text-4xl font-Marcellus">Special Activities</p>
-        <p className="max-w-[33.5rem] md-max:max-w-[20rem] text-end font-light">
+    <div className="my-20 sm-max:my-10">
+      <div className="mx-[1rem] flex justify-between mb-10 sm-max:justify-center sm-max:flex-col md-max:mx-[3rem] ">
+        <p className="text-4xl font-Marcellus text-center">Special Activities</p>
+        <p className="max-w-[33.5rem] md-max:max-w-[20rem] text-end font-light sm-max:max-w-[30rem] sm-max:text-center md-max:text-start">
           Going somewhere to celebrate this season? Whether you’re going home or
           somewhere to roam, tools to get you to your destination.
         </p>
+       
       </div>
+    
       <div>
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
           spaceBetween={10}
-          slidesPerView={1.5}
+          slidesPerView={1.25}
           loop={true}
           centeredSlides={true}
           className="mySwiper"
@@ -39,10 +41,10 @@ const Activities = () => {
           <SwiperSlide>
             <div className="relative">
               <img
-                className=" object-cover rounded-md w-full h-[550px] "
+                className=" object-cover rounded-md w-full h-[550px] sm-max:h-[300px]"
                 src={A_img1}
               />
-              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start">
+              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start sm-max:p-1 sm-max:left-1 ">
                 <p className="font-medium text-lg">The Red Sea Adventures</p>
                 <p className="max-w-[18.5rem] text-sm font-light my-4">
                   Going somewhere to celebrate this season Whether you’re going
@@ -58,10 +60,10 @@ const Activities = () => {
           <SwiperSlide>
             <div className="relative">
               <img
-                className=" object-cover rounded-md w-full h-[550px] "
+                className=" object-cover rounded-md w-full h-[550px] sm-max:h-[300px]"
                 src={A_img2}
               />
-              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start">
+              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start sm-max:p-1 sm-max:left-1">
                 <p className="font-medium text-lg">The Red Sea Adventures</p>
                 <p className="max-w-[18.5rem] text-sm font-light my-4">
                   Going somewhere to celebrate this season Whether you’re going
@@ -77,10 +79,10 @@ const Activities = () => {
           <SwiperSlide>
             <div className="relative">
               <img
-                className=" object-cover rounded-md w-full h-[550px] "
+                className=" object-cover rounded-md w-full h-[550px] sm-max:h-[300px]"
                 src={A_img3}
               />
-              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start">
+              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start sm-max:p-1 sm-max:left-1">
                 <p className="font-medium text-lg">The Red Sea Adventures</p>
                 <p className="max-w-[18.5rem] text-sm font-light my-4">
                   Going somewhere to celebrate this season Whether you’re going
@@ -96,10 +98,10 @@ const Activities = () => {
           <SwiperSlide>
             <div className="relative">
               <img
-                className=" object-cover rounded-md w-full h-[550px] "
+                className=" object-cover rounded-md w-full h-[550px] sm-max:h-[300px]"
                 src={A_img2}
               />
-              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start">
+              <div className="absolute bottom-7 left-7 bg-white opacity-80 p-7 text-start sm-max:p-1 sm-max:left-1">
                 <p className="font-medium text-lg">The Red Sea Adventures</p>
                 <p className="max-w-[18.5rem] text-sm font-light my-4">
                   Going somewhere to celebrate this season Whether you’re going

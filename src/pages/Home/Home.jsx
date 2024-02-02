@@ -1,19 +1,27 @@
 import React from 'react'
-import Hero from '../../container/Hero/Hero'
+
 import TrendingDestination from '../../components/TrendingDestination/TrendingDestination'
-import Locations from '../../container/Locations/Locations'
+
 import Activities from '../../components/Activities/Activities'
 import Banner from '../../components/Banner/Banner'
-import Map from '../../components/Map/Map'
+
+import Hero from '../../container/Home/Hero/Hero'
+import Locations from '../../container/Home/Locations/Locations'
+
+
+
 const Home = () => {
   return (
-    <div>
+    <div >
+     
         <Hero/>
+    
         <TrendingDestination/>
+        
         <Locations/>
         <Activities/>
         <Banner/>
-        <Map/>
+
     </div>
   )
 }

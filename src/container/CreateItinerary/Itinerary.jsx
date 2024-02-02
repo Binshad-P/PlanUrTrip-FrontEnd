@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const MultiStepForm = () => {
   const steps = ["Name", "Select Place", "Date"];
 
@@ -221,6 +222,7 @@ const MultiStepForm = () => {
               placeholder="Enter your trip’s name"
             />
             <div className="bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px] outline-none">
+              <Link to={'/RecomendedDestination'}>
               <button
                 className="flex items-center gap-5"
                 onClick={() => {
@@ -234,7 +236,7 @@ const MultiStepForm = () => {
                   ? "Generate Trip"
                   : `save&continue`}
                 {currentStep < steps.length ? <FaArrowRight /> : ""}
-              </button>
+              </button></Link>
               {/* {step > 1 && <button className='bg-[#8DD3BB] flex text-black gap-3 items-center py-3 px-[30px]' onClick={handlePrev}>Previous</button>} */}
             </div>
           </div>
