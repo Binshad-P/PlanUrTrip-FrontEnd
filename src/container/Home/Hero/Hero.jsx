@@ -1,9 +1,18 @@
 import React, { useRef } from "react";
+import { useEffect } from "react";
 import "./Hero.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import { TbWorldPin } from "react-icons/tb";
 import { HeroData } from "../../../Constant/HeroData";
+import { useDispatch, useSelector } from "react-redux";
+import { getPackages } from "../../../Redux/PackageSlice";
 const Hero = () => {
+  const dispacth = useDispatch();
+  const { data } = useSelector((state) => state.packages);
+  useEffect(() => {
+    dispacth(getPackages());
+  }, []);
+
   const slideRef = useRef(null);
 
   const handleNextClick = () => {
@@ -17,31 +26,28 @@ const Hero = () => {
     slideRef.current.prepend(items[items.length - 1].cloneNode(true));
     slideRef.current.removeChild(items[items.length - 1]);
   };
+
   return (
     <>
       <div className="container sm-max:block md-max:block lg:block">
         <div ref={slideRef} className="slide">
-          {
-            HeroData.map((items)=>(
-              <div className={`item  bg-center bg-cover `}>
-                <img src={items.image} className="h-[100%] object-cover w-[100%] rounded-md brightness-75"/>
+          {HeroData?.map((items) => (
+            <div className={`item  bg-center bg-cover `}>
+              <img
+                src={items.image}
+                className="h-[100%] object-cover w-[100%] rounded-md brightness-75"
+              />
               <div className="content">
                 <div className="name ">{items.title}</div>
-                <div className="desc">
-                 {items.subtitle}
-                </div>
+                <div className="desc">{items.subtitle}</div>
                 <button className="bg-[#8DD3BB] gap-2 flex text-black">
                   <TbWorldPin size={25} />
                   Create Itinerary
                 </button>
               </div>
             </div>
-            ))
+          ))}
 
-
-            
-          }
-         
           {/* <div class="item bg-img2 bg-center bg-cover rounded-xl brightness-75">
             <div class="content">
               <div class="name ">Lake Tahoe 2</div>
@@ -103,7 +109,7 @@ const Hero = () => {
             title="Next"
             onClick={handleNextClick}
           >
-            <FaArrowRight  className="absolute top-[50%] left-[50%] -translate-x-[50%]  -translate-y-[50%]" />
+            <FaArrowRight className="absolute top-[50%] left-[50%] -translate-x-[50%]  -translate-y-[50%]" />
           </button>
         </div>
       </div>
