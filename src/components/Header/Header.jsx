@@ -20,21 +20,22 @@ const Header = () => {
         <div className="flex items-center gap-6">
          <Link to={'/Login'}><button>Login</button></Link> 
           {click ? (
-            <IoClose className="lg:hidden" onClick={() => setClick(!click)} />
-          ) : (
+            <IoClose color="black" className="lg:hidden z-50" onClick={() => setClick(!click)} />
+           ) : (
             <IoMenu className="lg:hidden" onClick={() => setClick(!click)} />
           )}
         </div>
       </div>
       <ul
-        className={`bg-white fixed z-50 right-0 top-0 duration-500 ${
+        className={`bg-white fixed z-40 right-0 top-0 duration-500 flex flex-col items-center gap-7 pt-8 w-full h-full text-xl font-semibold ${
           click ? "translate-x-0" : "translate-x-full "
         }`}
       >
-        <Link to={'/'}><li>Home</li></Link>
-       <Link to={'/About'}><li>About Us</li></Link> 
-        <Link to={'/PlanYourTrip'}><li>Plan Your Trip</li></Link>
-        <Link to={'/SingleLocation'}><li>Destination</li></Link>
+        <Link to={'/'}><li onClick={() => setClick(!click)}>Demo..</li></Link>
+        <Link to={'/'}><li onClick={() => setClick(!click)}>Home</li></Link>
+       <Link to={'/About'}><li onClick={() => setClick(!click)}>About Us</li></Link> 
+        <Link to={'/PlanYourTrip'}><li onClick={() => setClick(!click)}>Plan Your Trip</li></Link>
+        <Link to={'/SingleLocation'}><li onClick={() => setClick(!click)}>Destination</li></Link>
       </ul>
     </div>
   );
